@@ -27,8 +27,6 @@ rm -rf out.log err.log
 forever start -l forever-kalxen.log -o out.log -e err.log -a kalxen.js
 
 echo Running Laere
-cd ~
-bash ./kalxen/hook.sh
 cd ~/www/laere.co
 npm i
-NODE_ENV=production grunt
+bash ~/kalxen/hook.sh
