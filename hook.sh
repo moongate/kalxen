@@ -25,7 +25,10 @@ if [ -f ~/tmp/master.zip ]; then
     echo 'Moved project to www'
     
     cd ~/www/laere.co
+    echo $(date) SHUTTING DOWN SERVER FOR UPDATE!
     forever stop server.js
+    npm i
     grunt dist
+    echo $(date) Starting up server!
     NODE_ENV=production forever start -l forever-laere.log -o out.log -e err.log -a server.js
 fi

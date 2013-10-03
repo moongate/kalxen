@@ -26,6 +26,4 @@ npm i
 forever start -l forever-kalxen.log -o out.log -e err.log -a kalxen.js
 
 echo Running Laere
-cd ~/www/laere.co
-npm i
 bash ~/kalxen/hook.sh
