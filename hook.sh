@@ -27,6 +27,5 @@ if [ -f ~/tmp/master.zip ]; then
     cd ~/www/laere.co
     forever stop server.js
     grunt dist
-    rm -rf out.log err.log
     NODE_ENV=production forever start -l forever-laere.log -o out.log -e err.log -a server.js
 fi

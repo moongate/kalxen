@@ -23,7 +23,6 @@ git clone https://github.com/moongate/kalxen.git
 chmod +x ./kalxen/hook.sh
 cd kalxen
 npm i
-rm -rf out.log err.log
 forever start -l forever-kalxen.log -o out.log -e err.log -a kalxen.js
 
 echo Running Laere
