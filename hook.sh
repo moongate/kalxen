@@ -10,7 +10,7 @@ if [ -f ~/tmp/master.zip ]; then
     # Unzip the zip file
     unzip ~/tmp/master.zip
     # Copy project to deploy folder
-    cp -rf laere-master/ ~/www/laere.co/
+    cp -rf laere-master/. ~/www/laere.co/
     echo 'Moved project to www'
 
     # Delete zip file
