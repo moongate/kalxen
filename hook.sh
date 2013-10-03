@@ -20,7 +20,7 @@ if [ -f ~/tmp/master.zip ]; then
     cd ~/www/laere.co
     echo $(date) SHUTTING DOWN SERVER FOR UPDATE!
     forever stop server.js
-    bower i
+    bower i --allow-root
     npm i
     grunt dist
     echo $(date) Starting up server!
