@@ -8,25 +8,19 @@ echo 'Finished downloading master'
 # Second, unzip it, if the zip file exists
 if [ -f ~/tmp/master.zip ]; then
     # Unzip the zip file
-    unzip -q ~/tmp/master.zip
+    unzip ~/tmp/master.zip
+    # Copy project to deploy folder
+    cp -rf laere-master/ ~/www/laere.co/
+    echo 'Moved project to www'
 
     # Delete zip file
     rm ~/tmp/master.zip
-
-    echo 'Unzipped and removed zip'
-
-    # Copy project to deploy folder
-    cp -rf laere-master/* ~/www/laere.co/
-
-    echo 'Copied new files'
-
     rm -rf laere-master
-
-    echo 'Moved project to www'
     
     cd ~/www/laere.co
     echo $(date) SHUTTING DOWN SERVER FOR UPDATE!
     forever stop server.js
+    bower i
     npm i
     grunt dist
     echo $(date) Starting up server!
