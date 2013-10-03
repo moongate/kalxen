@@ -23,4 +23,9 @@ if [ -f ~/tmp/master.zip ]; then
     rm -rf laere-master
 
     echo 'Moved project to www'
+    
+    cd ~/www/laere.co
+    forever stop server.js
+    grunt dist
+    forever start -l forever-laere.log -o out.log -e err.log -a server.js
 fi
