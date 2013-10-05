@@ -15,6 +15,7 @@ sudo npm i -g coffee-script grunt-cli phantomjs karma bower bower-installer fore
 
 echo Creating folders
 cd ~
+mkdir ~/tmp
 mkdir ~/www
 mkdir ~/www/laere.co
 
