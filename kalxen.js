@@ -6,16 +6,16 @@ var execFile = require('child_process').execFile;
 gith({
     repo: 'moongate/laere'
 }).on('all', function (payload) {
-        if (payload.branch === 'master') {
-            // Exec a shell script
-            execFile('./hook.sh', function (error, stdout, stderr) {
-                if (error) {
-                    throw error;
-                }
-								console.log(stdout);
-								console.log(stderr);
-                // Log success in some manner
-                console.log('Summon complete...');
-            });
-        }
-    });
+    if (payload.branch === 'master') {
+        // Exec a shell script
+        execFile('./hook.sh', function (error, stdout, stderr) {
+            if (error) {
+                throw error;
+            }
+                            console.log(stdout);
+                            console.log(stderr);
+            // Log success in some manner
+            console.log('Summon complete...');
+        });
+    }
+});

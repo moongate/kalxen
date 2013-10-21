@@ -1,8 +1,7 @@
 {
     "name": "kalxen",
     "description": "Summons new builds",
-    "version": "0.1.0",
-    "private": false,
+    "version": "0.2.0",
     "author": "Guilherme Rodrigues",
     "repository": {
         "type": "git",
@@ -11,11 +10,6 @@
     "engines": {
         "node": "0.10.x",
         "npm": "1.2.x"
-    },
-    "scripts": {
-        "start": "node node_modules/grunt-cli/bin/grunt",
-        "test": "node node_modules/grunt-cli/bin/grunt test",
-        "postinstall": "node node_modules/grunt-cli/bin/grunt install"
     },
     "dependencies": {
         "gith": "*"
