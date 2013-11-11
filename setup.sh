@@ -11,7 +11,7 @@ cd node-v$ver
 ./configure && make && checkinstall --install=yes --pkgname=nodejs --pkgversion "$ver" --default
 
 echo Installing global npm packages
-sudo npm i -g coffee-script phantomjs karma bower forever
+sudo npm i -g coffee-script phantomjs karma bower forever grunt-cli
 
 echo Creating folders
 cd ~

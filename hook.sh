@@ -22,6 +22,8 @@ if [ -f ~/tmp/master.zip ]; then
     forever stop server.coffee
     bower i --allow-root
     npm i
+    echo $(date) Compiling static assets...
+    grunt dist
     echo $(date) Starting up server!
     NODE_ENV=production forever start -c coffee -l forever-laere.log -o out.log -e err.log -a server.coffee
 fi
