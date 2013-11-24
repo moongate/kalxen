@@ -16,7 +16,7 @@ if [ -f ~/tmp/master.zip ]; then
     # Delete zip file
     rm ~/tmp/master.zip
     rm -rf laere-master
-    
+
     cd ~/www/laere.co
     echo $(date) SHUTTING DOWN SERVER FOR UPDATE!
     forever stop server.coffee

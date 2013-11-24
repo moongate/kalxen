@@ -1,7 +1,7 @@
 {
     "name": "kalxen",
     "description": "Summons new builds",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "author": "Guilherme Rodrigues",
     "repository": {
         "type": "git",
@@ -10,8 +10,5 @@
     "engines": {
         "node": "0.10.x",
         "npm": "1.2.x"
-    },
-    "dependencies": {
-        "gith": "*"
     }
 }
