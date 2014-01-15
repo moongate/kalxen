@@ -1,4 +1,7 @@
 #!/bin/bash
+echo NODE_ENV=production >> /etc/environment
+source /etc/environment
+
 echo Installing dependencies
 apt-get update
 apt-get -y install libssl-dev git-core pkg-config build-essential curl gcc g++ checkinstall vim unzip mongodb
@@ -32,7 +35,6 @@ bash ~/kalxen/laere/install.sh
 bash ~/kalxen/laere-ui/download.sh
 bash ~/kalxen/laere-ui/install.sh
 
-export NODE_ENV=production
 cd ~/www/laere.co
 echo Running Laere
 npm start
