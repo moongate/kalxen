@@ -6,6 +6,7 @@ unzip -o ~/tmp/laere-ui-master.zip -d ~/tmp
 # Install and compile static assets
 cd ~/tmp/laere-ui-master/
 npm i --production
+grunt dist
 
 # Clean public folder
 rm -rf ~/www/laere.co/public/*
