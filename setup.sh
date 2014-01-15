@@ -3,7 +3,7 @@ echo Installing dependencies
 apt-get update
 apt-get -y install libssl-dev git-core pkg-config build-essential curl gcc g++ checkinstall vim unzip mongodb
 
-ver="0.10.21"
+ver="0.10.24"
 echo Installing node version $ver
 wget http://nodejs.org/dist/v$ver/node-v$ver.tar.gz
 tar -zxf node-v$ver.tar.gz
@@ -11,20 +11,28 @@ cd node-v$ver
 ./configure && make && checkinstall --install=yes --pkgname=nodejs --pkgversion "$ver" --default
 
 echo Installing global npm packages
-sudo npm i -g coffee-script phantomjs karma bower forever grunt-cli
+sudo npm i -g coffee-script phantomjs karma bower pm2 grunt-cli mocha
 
 echo Creating folders
-cd ~
 mkdir ~/tmp
 mkdir ~/www
 mkdir ~/www/laere.co
 
 echo Installing kalxen
+cd ~
 git clone https://github.com/moongate/kalxen.git
-chmod +x ./kalxen/hook.sh
 cd kalxen
-npm i
-forever start -l forever-kalxen.log -o out.log -e err.log -a kalxen.js
+chmod +x *.sh
+chmod +x laere/*.sh
+chmod +x laere-ui/*.sh
 
+echo Installing Laere
+bash ~/kalxen/laere/download.sh
+bash ~/kalxen/laere/install.sh
+bash ~/kalxen/laere-ui/download.sh
+bash ~/kalxen/laere-ui/install.sh
+
+export NODE_ENV=production
+cd ~/www/laere.co
 echo Running Laere
-bash ~/kalxen/hook.sh
+npm start

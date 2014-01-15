@@ -7,6 +7,11 @@
         "type": "git",
         "url": "https://github.com/moongate/kalxen.git"
     },
+    "scripts": {
+        "start": "pm2 start kalxen.js",
+        "restart": "pm2 reload kalxen.js",
+        "stop": "pm2 stop kalxen.js"
+    },
     "engines": {
         "node": "0.10.x",
         "npm": "1.2.x"

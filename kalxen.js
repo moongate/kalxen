@@ -13,32 +13,49 @@ var server = http.createServer(function (request, response) {
             }
         });
         request.on('end', function () {
-            if(body === 'kalxen') {
-                console.log('Summon started...');
-                execFile('./hook.sh', function (error, stdout, stderr) {
+            if(body === 'laere') {
+                console.log('API Summon started...');
+                execFile('./laere.sh', function (error, stdout, stderr) {
                     if (error) {
                         console.log(error);
                         response.writeHead(500, {"Content-Type": "text/plain"});
-                        response.end("i'm not feeling very well...\n");
+                        response.end("I'm not feeling very well...\n");
                     }
                     else {
                         console.log(stdout);
                         console.log(stderr);
                         console.log('Summon complete...');
                         response.writeHead(200, {"Content-Type": "text/plain"});
-                        response.end("thanks\n");
+                        response.end("Thanks\n");
+                    }
+                });
+            }
+            else if(body === 'laere-ui') {
+                console.log('UI Summon started...');
+                execFile('./laere-ui.sh', function (error, stdout, stderr) {
+                    if (error) {
+                        console.log(error);
+                        response.writeHead(500, {"Content-Type": "text/plain"});
+                        response.end("I'm not feeling very well...\n");
+                    }
+                    else {
+                        console.log(stdout);
+                        console.log(stderr);
+                        console.log('Summon complete...');
+                        response.writeHead(200, {"Content-Type": "text/plain"});
+                        response.end("Thanks\n");
                     }
                 });
             }
             else {
                 response.writeHead(400, {"Content-Type": "text/plain"});
-                response.end("bad request\n");
+                response.end("Bad request\n");
             }
         });
     }
     else {
         response.writeHead(400, {"Content-Type": "text/plain"});
-        response.end("bad request\n");
+        response.end("Bad request\n");
     }
 });
 
