@@ -3,8 +3,10 @@ echo NODE_ENV=production >> /etc/environment
 source /etc/environment
 
 echo Installing dependencies
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
 apt-get update
-apt-get -y install libssl-dev git-core pkg-config build-essential curl gcc g++ checkinstall vim unzip mongodb
+apt-get -y install libssl-dev git-core pkg-config build-essential curl gcc g++ checkinstall vim unzip mongodb-10gen
 
 ver="0.10.24"
 echo Installing node version $ver
